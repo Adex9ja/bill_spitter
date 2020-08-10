@@ -5,6 +5,6 @@ class Const{
 
   static const double padding = 16.0;
 
-  static const double avatarRadius = 90.0;
+  static const double avatarRadius = 80.0;
   
 }

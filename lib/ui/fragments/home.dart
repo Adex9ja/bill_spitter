@@ -20,7 +20,9 @@ class _HomeFragment extends State<HomeFragment>{
    return Scaffold(
      body: SafeArea(
        child: Container(
-         padding: smallSpacing,
+         padding: mediumSpacing,
+         color: colorLightGrey,
+         height: MediaQuery.of(context).size.height,
          child: SingleChildScrollView(
            child:  Stack(
              children: <Widget>[
@@ -94,9 +96,9 @@ class _HomeFragment extends State<HomeFragment>{
                  left: Const.padding,
                  right: Const.padding,
                  child: CircleAvatar(
-                   backgroundColor: colorLightGrey,
+                   backgroundColor: colorPrimary,
                    radius: Const.avatarRadius,
-                   child: Image.asset("assets/bill_1.png", fit: BoxFit.scaleDown, width: 160,),
+                   child: Image.asset("assets/bill_1.png", fit: BoxFit.scaleDown, width: 150,),
                  ),
                ),
              ],
