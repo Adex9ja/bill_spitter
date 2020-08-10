@@ -1,9 +1,10 @@
+import 'package:bill_splitter/ui/fragments/home.dart';
 import 'package:bill_splitter/utils/connection_singleton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class DashBoardActivity extends StatefulWidget{
   @override
@@ -12,6 +13,8 @@ class DashBoardActivity extends StatefulWidget{
 }
 
 class _DashBoardActivity extends State<DashBoardActivity>{
+  var _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -19,6 +22,15 @@ class _DashBoardActivity extends State<DashBoardActivity>{
       initialData: ConnectionStatusSingleton.getInstance().hasConnection,
       builder: (context, snapshot){
         return Scaffold(
+          appBar: AppBar(
+            title: Text("Welcome", style: style,),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Sign Out", style: style,),
+                onPressed: () => signOut(),
+              )
+            ],
+          ),
           body: SafeArea(
             child: Container(
               color: colorLightGrey,
@@ -37,14 +49,21 @@ class _DashBoardActivity extends State<DashBoardActivity>{
               ),
             ),
           ),
-          appBar: AppBar(
-            title: Text("Welcome", style: style,),
-            actions: <Widget>[
-              FlatButton(
-                child: Text("Sign Out", style: style,),
-                onPressed: () => signOut(),
-              )
-            ],
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: _currentIndex,
+            onTap: (int index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            items: allDestinations.map<BottomNavigationBarItem>((Destination destination){
+              return BottomNavigationBarItem(
+                icon: Icon(destination.icon,),
+                title: Text(destination.title, style: style,),
+              );
+            }).toList(),
+            selectedItemColor: colorPrimary,
           ),
         );
       },
@@ -55,4 +74,17 @@ class _DashBoardActivity extends State<DashBoardActivity>{
     FirebaseAuth.instance.signOut().then((value) => Navigator.popAndPushNamed(context, '/login'));
   }
 
+}
+
+List<Destination> allDestinations = <Destination>[
+  Destination('Home', Icons.home,  HomeFragment()),
+  Destination('History', Icons.show_chart, HomeFragment()),
+  Destination('Friends', Icons.person, HomeFragment() )
+];
+
+class Destination {
+  const Destination(this.title, this.icon, this.widget);
+  final String title;
+  final IconData icon;
+  final Widget widget;
 }

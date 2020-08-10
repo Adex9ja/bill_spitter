@@ -1,7 +1,7 @@
-import 'package:bill_splitter/ui/dashboard.dart';
-import 'package:bill_splitter/ui/login.dart';
-import 'package:bill_splitter/ui/otp.dart';
-import 'package:bill_splitter/ui/welcome.dart';
+import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/dashboard.dart';
+import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/login.dart';
+import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/otp.dart';
+import 'package:bill_splitter/ui/activities/welcome.dart';
 import 'package:bill_splitter/utils/connection_singleton.dart';
 import 'package:bill_splitter/utils/const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
