@@ -32,8 +32,9 @@ class _DashBoardActivity extends State<DashBoardActivity>{
           appBar: AppBar(
             title: Text("Bill Splitter", style: style,),
             actions: <Widget>[
-              FlatButton(
-                child: Text("Sign Out", style: style,),
+              FlatButton.icon(
+                icon: Icon(Icons.power_settings_new, color: colorWhite,),
+                label: Text("Sign Out", style: style.copyWith(color: colorWhite),),
                 onPressed: () => signOut(),
               )
             ],
