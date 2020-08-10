@@ -18,6 +18,12 @@ class _DashBoardActivity extends State<DashBoardActivity>{
 
   @override
   Widget build(BuildContext context) {
+    final container = IndexedStack(
+      index: _currentIndex,
+      children: allDestinations.map<Widget>((Destination destination){
+        return destination.widget;
+      }).toList(),
+    );
     return StreamBuilder(
       stream: ConnectionStatusSingleton.getInstance().connectionChange,
       initialData: ConnectionStatusSingleton.getInstance().hasConnection,
@@ -39,12 +45,7 @@ class _DashBoardActivity extends State<DashBoardActivity>{
                 children: <Widget>[
                   snapshot.hasData && snapshot.data ? Container() : noInternetWidget,
                   Expanded(
-                      child: SingleChildScrollView(
-                        child: Padding(
-                          padding: fabSpacing,
-                          child: Container(),
-                        ),
-                      )
+                    child: container,
                   )
                 ],
               ),
