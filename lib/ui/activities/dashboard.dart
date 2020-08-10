@@ -1,3 +1,4 @@
+import 'package:bill_splitter/ui/fragments/friends.dart';
 import 'package:bill_splitter/ui/fragments/home.dart';
 import 'package:bill_splitter/utils/connection_singleton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,7 +24,7 @@ class _DashBoardActivity extends State<DashBoardActivity>{
       builder: (context, snapshot){
         return Scaffold(
           appBar: AppBar(
-            title: Text("Welcome", style: style,),
+            title: Text("Bill Splitter", style: style,),
             actions: <Widget>[
               FlatButton(
                 child: Text("Sign Out", style: style,),
@@ -79,7 +80,7 @@ class _DashBoardActivity extends State<DashBoardActivity>{
 List<Destination> allDestinations = <Destination>[
   Destination('Home', Icons.home,  HomeFragment()),
   Destination('History', Icons.show_chart, HomeFragment()),
-  Destination('Friends', Icons.person, HomeFragment() )
+  Destination('Friends', Icons.person, FriendsFragment() )
 ];
 
 class Destination {

@@ -162,6 +162,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.6"
+  contact_picker:
+    dependency: "direct dev"
+    description:
+      name: contact_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   convert:
     dependency: transitive
     description:

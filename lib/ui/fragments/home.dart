@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class HomeFragment extends StatefulWidget{
   @override
@@ -10,7 +11,9 @@ class _HomeFragment extends State<HomeFragment>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw UnimplementedError();
+   return Scaffold(
+     body: Container(),
+   );
   }
 
 }
