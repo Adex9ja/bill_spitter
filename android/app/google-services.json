@@ -1,0 +1,159 @@
+{
+  "project_info": {
+    "project_number": "915480798820",
+    "firebase_url": "https://cloudmessaginggcm-168517.firebaseio.com",
+    "project_id": "cloudmessaginggcm-168517",
+    "storage_bucket": "cloudmessaginggcm-168517.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915480798820:android:58356bc9e2daee94",
+        "android_client_info": {
+          "package_name": "com.adeolu.project.studentcompanion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915480798820-9tnfk2t0trrq1dragsomo5f7tnkr6gts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adeolu.project.studentcompanion",
+            "certificate_hash": "1ef78826f45e50ba54607b06d715e1671c6ff976"
+          }
+        },
+        {
+          "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-0VbodjaayWOJLNn3p9Eytz3D2YIzNZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915480798820:android:2ca54ce456e9cb32616171",
+        "android_client_info": {
+          "package_name": "com.myapp.bill_splitter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915480798820-tu5o1gm3gfl9rabt21pe4lbkfua3l3af.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myapp.bill_splitter",
+            "certificate_hash": "5b3e7c47a362afb43145c904d9ca28f90eca938b"
+          }
+        },
+        {
+          "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-0VbodjaayWOJLNn3p9Eytz3D2YIzNZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915480798820:android:5cd66b8472955fa8",
+        "android_client_info": {
+          "package_name": "intellifin.com.ng.merchantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915480798820-irofl536l2g1movlce9reblth8qhqds6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "intellifin.com.ng.merchantapp",
+            "certificate_hash": "1ef78826f45e50ba54607b06d715e1671c6ff976"
+          }
+        },
+        {
+          "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-0VbodjaayWOJLNn3p9Eytz3D2YIzNZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915480798820:android:5cf65e806f1823dc",
+        "android_client_info": {
+          "package_name": "ng.neas.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915480798820-drcdnf82ji48d0ua5dfhgpvjq6k4c1i8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ng.neas.com",
+            "certificate_hash": "1ef78826f45e50ba54607b06d715e1671c6ff976"
+          }
+        },
+        {
+          "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-0VbodjaayWOJLNn3p9Eytz3D2YIzNZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915480798820-etaj5lj8eg7cuencrpffdfosm0f752j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
