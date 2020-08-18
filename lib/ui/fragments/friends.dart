@@ -50,7 +50,10 @@ class _FriendsFragment extends State<FriendsFragment>{
                         color: colorGrey,
                       ),
                     itemBuilder: (context, position){
-                      return Text(_contactList[position].fullName, style: style,);
+                      return Padding(
+                        padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                        child: Text(_contactList[position].fullName, style: style,),
+                      );
                     },
                     itemCount: _contactList.length,
                     padding: mediumSpacing,

@@ -336,7 +336,7 @@ packages:
     source: hosted
     version: "1.0.1"
   flutter_multiselect:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_multiselect
       url: "https://pub.dartlang.org"

@@ -13,9 +13,7 @@ class WelcomeActivity extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 50,),
-            Image.asset("images/logo.png", height: 100, alignment: Alignment.center, ),
-            SizedBox(height: 30,),
+            SizedBox(height: 180,),
             Expanded(
               child: IntroductionScreen(
                 globalBackgroundColor: Colors.transparent,
