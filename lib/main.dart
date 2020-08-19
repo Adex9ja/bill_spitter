@@ -1,6 +1,7 @@
 import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/dashboard.dart';
 import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/login.dart';
 import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/otp.dart';
+import 'package:bill_splitter/ui/activities/bill_splitting.dart';
 import 'package:bill_splitter/ui/activities/welcome.dart';
 import 'package:bill_splitter/utils/connection_singleton.dart';
 import 'package:bill_splitter/utils/const.dart';
@@ -60,6 +61,7 @@ class _MyApp extends State<MyApp>{
         '/login' : (context) => LoginActivity(),
         '/login/otp' : (context) => OTPActivity(),
         '/dashboard' : (context) => DashBoardActivity(),
+        '/dashboard/split' : (context) => BillSplittingActivity(),
       },
     );
   }
@@ -105,11 +107,11 @@ final Widget noInternetWidget = Container(
 );
 
 ProgressDialog _progressDialog;
-void startLoading(BuildContext context, [String message = "Please wait..."]){
+Future<void> startLoading(BuildContext context, [String message = "Please wait..."]) async {
   if(_progressDialog != null && _progressDialog.isShowing()) _progressDialog.hide();
   _progressDialog = ProgressDialog(context, isDismissible: false,);
   _progressDialog.update(message: message, progress: 100);
-  _progressDialog.show();
+  await _progressDialog.show();
 }
 void updateLoading(BuildContext context, String message){
   _progressDialog.update(message: message);

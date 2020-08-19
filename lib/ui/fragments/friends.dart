@@ -22,7 +22,7 @@ class _FriendsFragment extends State<FriendsFragment>{
   Future<FirebaseUser> loadUser() async {
     var user = await FirebaseAuth.instance.currentUser();
     final FirebaseDatabase database = FirebaseDatabase();
-    _contactRef = database.reference().child('contacts').child(user.uid);
+    _contactRef = database.reference().child("bill_splitter").child('contacts').child(user.uid);
     return user;
   }
 
@@ -84,8 +84,19 @@ class _FriendsFragment extends State<FriendsFragment>{
     Contact contact = await _contactPicker.selectContact();
     if(contact != null){
       var data = { "fullName" : contact.fullName, "phoneNumber" : contact.phoneNumber.number };
-      _contactRef.push().set(data).then((value) => toastSuccess("Contact added!"));
+      startLoading(context).then((value){
+        _contactRef.push().set(data).then((value) => addedSuccessfully()).catchError(onError);
+      });
+
     }
   }
 
+  addedSuccessfully() {
+    loadingSuccessful("Contact added!");
+  }
+
+
+  onError(Object object) {
+    loadingFailed("Error Occurs!");
+  }
 }

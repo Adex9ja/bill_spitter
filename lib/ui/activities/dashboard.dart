@@ -24,52 +24,39 @@ class _DashBoardActivity extends State<DashBoardActivity>{
         return destination.widget;
       }).toList(),
     );
-    return StreamBuilder(
-      stream: ConnectionStatusSingleton.getInstance().connectionChange,
-      initialData: ConnectionStatusSingleton.getInstance().hasConnection,
-      builder: (context, snapshot){
-        return Scaffold(
-          appBar: AppBar(
-            title: Text("Bill Splitter", style: style,),
-            actions: <Widget>[
-              FlatButton.icon(
-                icon: Icon(Icons.power_settings_new, color: colorWhite,),
-                label: Text("Sign Out", style: style.copyWith(color: colorWhite),),
-                onPressed: () => signOut(),
-              )
-            ],
-          ),
-          body: SafeArea(
-            child: Container(
-              color: colorLightGrey,
-              child: Column(
-                children: <Widget>[
-                  snapshot.hasData && snapshot.data ? Container() : noInternetWidget,
-                  Expanded(
-                    child: container,
-                  )
-                ],
-              ),
-            ),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _currentIndex,
-            onTap: (int index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            items: allDestinations.map<BottomNavigationBarItem>((Destination destination){
-              return BottomNavigationBarItem(
-                icon: Icon(destination.icon,),
-                title: Text(destination.title, style: style,),
-              );
-            }).toList(),
-            selectedItemColor: colorPrimary,
-          ),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Bill Splitter", style: style,),
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.power_settings_new, color: colorWhite,),
+            label: Text("Sign Out", style: style.copyWith(color: colorWhite),),
+            onPressed: () => signOut(),
+          )
+        ],
+      ),
+      body: SafeArea(
+        child: Container(
+          color: colorLightGrey,
+          child: container
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: allDestinations.map<BottomNavigationBarItem>((Destination destination){
+          return BottomNavigationBarItem(
+            icon: Icon(destination.icon,),
+            title: Text(destination.title),
+          );
+        }).toList(),
+        selectedItemColor: colorPrimary,
+      ),
     );
   }
 
@@ -82,7 +69,7 @@ class _DashBoardActivity extends State<DashBoardActivity>{
 List<Destination> allDestinations = <Destination>[
   Destination('Home', Icons.home,  HomeFragment()),
   Destination('History', Icons.show_chart, HomeFragment()),
-  Destination('Friends', Icons.person, FriendsFragment() )
+  Destination('Friends', Icons.group, FriendsFragment() )
 ];
 
 class Destination {

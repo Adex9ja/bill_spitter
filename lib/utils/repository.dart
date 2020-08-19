@@ -1,4 +1,6 @@
 
+import 'package:intl/intl.dart';
+
 class Repository{
   static Repository _instance = Repository._internal();
   Repository._internal();
@@ -18,4 +20,9 @@ class Repository{
     return "+234" + formatPhoneNumber(customerId).substring(1);
   }
 
+  String getNairaUnitFormat(double amount) {
+    final oCcy = new NumberFormat("#,##0.00", "en_US");
+    final formated = oCcy.format(amount);
+    return formated.toString();
+  }
 }

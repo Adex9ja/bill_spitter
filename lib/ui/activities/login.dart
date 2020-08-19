@@ -80,9 +80,11 @@ class _LoginActivity extends State<LoginActivity>{
       return;
     }
 
-    startLoading(context);
-    _formattedPhoneNumber = Repository.getInstance().formatPhoneNumberWithCountryCode(_phoneNumber);
-    _auth.verifyPhoneNumber(phoneNumber: _formattedPhoneNumber, timeout: Duration(minutes: 1), verificationCompleted: _verificationCompleted, verificationFailed: _verificationFailed, codeSent: _codeSent, codeAutoRetrievalTimeout:  _codeAutoRetrievalTimeout);
+    startLoading(context).then((value){
+      _formattedPhoneNumber = Repository.getInstance().formatPhoneNumberWithCountryCode(_phoneNumber);
+      _auth.verifyPhoneNumber(phoneNumber: _formattedPhoneNumber, timeout: Duration(minutes: 1), verificationCompleted: _verificationCompleted, verificationFailed: _verificationFailed, codeSent: _codeSent, codeAutoRetrievalTimeout:  _codeAutoRetrievalTimeout);
+    });
+
   }
 
   void _verificationCompleted(AuthCredential phoneAuthCredential) {
