@@ -9,6 +9,7 @@ class Friend{
   Friend.fromSnapshot(Map<dynamic, dynamic> value) {
     fullName = value['fullName'];
     phoneNumber = value['phoneNumber'];
+    amount = double.tryParse(value['amount'].toString());
 
   }
 

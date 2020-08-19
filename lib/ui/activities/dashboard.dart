@@ -1,4 +1,5 @@
 import 'package:bill_splitter/ui/fragments/friends.dart';
+import 'package:bill_splitter/ui/fragments/history.dart';
 import 'package:bill_splitter/ui/fragments/home.dart';
 import 'package:bill_splitter/utils/connection_singleton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -68,7 +69,7 @@ class _DashBoardActivity extends State<DashBoardActivity>{
 
 List<Destination> allDestinations = <Destination>[
   Destination('Home', Icons.home,  HomeFragment()),
-  Destination('History', Icons.show_chart, HomeFragment()),
+  Destination('History', Icons.history, HistoryFragment()),
   Destination('Friends', Icons.group, FriendsFragment() )
 ];
 

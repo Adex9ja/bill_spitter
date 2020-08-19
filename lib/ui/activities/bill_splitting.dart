@@ -148,8 +148,10 @@ class _BillSplittingActivity extends State<BillSplittingActivity>{
     var currentState = _formKey.currentState;
     if(currentState.validate()){
       currentState.save();
-      var request = data['splitters'].map((value) => { "fullName" : value.fullName, "phoneNumber" : value.phoneNumber, "amount" : value.amount }).toList();
-      startLoading(context).then((value) =>  _contactRef.push().set(request).then((value) => splittedSaved()).catchError(onError));
+      var splitters = data['splitters'].map((value) => { "fullName" : value.fullName, "phoneNumber" : value.phoneNumber, "amount" : value.amount }).toList();
+      data['splitters'] = splitters;
+      data['date'] = DateTime.now().toString();
+      startLoading(context).then((value) =>  _contactRef.push().set(data).then((value) => splittedSaved()).catchError(onError));
     }
   }
 
