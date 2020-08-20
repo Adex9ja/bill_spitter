@@ -148,6 +148,7 @@ class _BillSplittingActivity extends State<BillSplittingActivity>{
     var currentState = _formKey.currentState;
     if(currentState.validate()){
       currentState.save();
+
       var splitters = data['splitters'].map((value) => { "fullName" : value.fullName, "phoneNumber" : value.phoneNumber, "amount" : value.amount }).toList();
       data['splitters'] = splitters;
       data['date'] = DateTime.now().toString();

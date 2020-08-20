@@ -16,68 +16,69 @@ class _HistoryFragment extends State<HistoryFragment>{
   DatabaseReference _contactRef;
   List<Split> _splitList = List();
 
-  @override
-  void initState() {
-    super.initState();
-    FirebaseDatabase database = FirebaseDatabase();
-    FirebaseAuth.instance.currentUser().then((value){
-      _contactRef = database.reference().child("bill_splitter").child('splits').child(value.uid);
-    });
 
-  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: StreamBuilder(
-            stream: _contactRef?.onValue,
-            builder: (context, event){
-              if(event.hasData && event.data.snapshot.value != null){
-                Map map = event.data.snapshot.value;
-                _splitList = map.values.map((e) => Split.fromSnapshot(e)).toList();
-                return ListView.builder(
-                  itemBuilder: (context, position) =>  Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5))
-                    ),
-                    elevation: 2,
-                    margin: mediumSpacing,
-                    child: ExpansionTile(
-                        backgroundColor: Colors.white,
-                        title: _buildTitle(_splitList[position]),
-                        trailing: SizedBox(),
-                        children: _splitList[position].splitters.map<Widget>((e) {
-                          return Padding(
-                            padding: EdgeInsets.all(5),
-                            child: Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(Icons.check_circle, color: colorPrimary,),
-                                      VerticalDivider(),
-                                      Text(e.fullName, style: style.copyWith(color: colorGrey, fontSize: 13),),
-                                    ],
-                                  ),
-                                  flex: 3,
-                                ),
-                                Text("NGN ${ Repository.getInstance().getNairaUnitFormat(e.amount)} ", style: style.copyWith(fontSize: 13, color: colorGrey),),
-                              ],
+    return FutureBuilder(
+      future: loadUser(),
+      builder: (context, event){
+        if(event.hasData && event.data != null){
+          return Scaffold(
+            body: SafeArea(
+                child: StreamBuilder(
+                  stream: _contactRef?.onValue,
+                  builder: (context, event){
+                    if(event.hasData && event.data.snapshot.value != null){
+                      Map map = event.data.snapshot.value;
+                      _splitList = map.values.map((e) => Split.fromSnapshot(e)).toList();
+                      return ListView.builder(
+                          itemBuilder: (context, position) =>  Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(5))
                             ),
-                          );
-                        }).toList() ),),
-                  itemCount: _splitList.length
-                );
-              }
-              else{
-                return Center(
-                  child: Text("Your history list is currently empty", style: style, textAlign: TextAlign.center,),
-                );
-              }
-            },
-          )
+                            elevation: 2,
+                            margin: mediumSpacing,
+                            child: ExpansionTile(
+                                backgroundColor: Colors.white,
+                                title: _buildTitle(_splitList[position]),
+                                trailing: SizedBox(),
+                                children: _splitList[position].splitters.map<Widget>((e) {
+                                  return Padding(
+                                    padding: EdgeInsets.all(5),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: Row(
+                                            children: <Widget>[
+                                              Icon(Icons.check_circle, color: colorPrimary,),
+                                              VerticalDivider(),
+                                              Text(e.fullName, style: style.copyWith(color: colorGrey, fontSize: 13),),
+                                            ],
+                                          ),
+                                          flex: 3,
+                                        ),
+                                        Text("NGN ${ Repository.getInstance().getNairaUnitFormat(e.amount)} ", style: style.copyWith(fontSize: 13, color: colorGrey),),
+                                      ],
+                                    ),
+                                  );
+                                }).toList() ),),
+                          itemCount: _splitList.length
+                      );
+                    }
+                    else{
+                      return Center(
+                        child: Text("Your history list is currently empty", style: style, textAlign: TextAlign.center,),
+                      );
+                    }
+                  },
+                )
 
-      ),
+            ),
+          );
+        }
+        else
+          return Center( child:  CircularProgressIndicator(),);
+      }
     );
   }
   Widget _buildTitle(Split splitList) {
@@ -104,5 +105,10 @@ class _HistoryFragment extends State<HistoryFragment>{
       ],
     );
   }
-
+  Future<FirebaseUser> loadUser() async {
+    var user = await FirebaseAuth.instance.currentUser();
+    final FirebaseDatabase database = FirebaseDatabase();
+    _contactRef = database.reference().child("bill_splitter").child('splits').child(user.uid);
+    return user;
+  }
 }

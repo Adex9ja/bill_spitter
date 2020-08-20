@@ -171,6 +171,7 @@ class _HomeFragment extends State<HomeFragment>{
       double amountD = double.tryParse(_amount);
       if(amountD == null || amountD <= 0){
         toastInfo("Invalid amount entered");
+        return;
       }
 
       var splitters = _contactList.where((element) => _selectedFriends.contains(element.phoneNumber)).toList();
