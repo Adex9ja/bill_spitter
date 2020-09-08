@@ -1,7 +1,7 @@
-import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/dashboard.dart';
-import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/login.dart';
-import 'file:///D:/Repository/Flutter/Learning/bill_splitter/lib/ui/activities/otp.dart';
 import 'package:bill_splitter/ui/activities/bill_splitting.dart';
+import 'package:bill_splitter/ui/activities/dashboard.dart';
+import 'package:bill_splitter/ui/activities/login.dart';
+import 'package:bill_splitter/ui/activities/otp.dart';
 import 'package:bill_splitter/ui/activities/welcome.dart';
 import 'package:bill_splitter/utils/connection_singleton.dart';
 import 'package:bill_splitter/utils/const.dart';
